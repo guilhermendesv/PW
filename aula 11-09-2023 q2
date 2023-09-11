@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verificação de Preenchimento</title>
+</head>
+<body>
+    <form id="loginForm">
+        <label for="login">Login:</label>
+        <input type="text" id="login" name="login"><br><br>
+        
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha"><br><br>
+        
+        <input type="submit" value="Entrar">
+    </form>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            
+            const login = document.getElementById('login').value;
+            const senha = document.getElementById('senha').value;
+
+           
+            if (verificarPreenchimento(login, senha)) {
+                alert('Formulário preenchido corretamente. Enviando...');
+                
+            } else {
+                alert('Por favor, preencha todos os campos.');
+            }
+        });
+
+        function verificarPreenchimento(login, senha) {
+            
+            return login.trim() !== '' && senha.trim() !== '';
+        }
+    </script>
+</body>
+</html>
